@@ -28,5 +28,5 @@ urlpatterns = [
     path('leaves/',include('leaves.urls') ),
     path('users/',include('users.urls') ),
     path('dashboards/',include('dashboards.urls') ),
-
+    path('api/users/',include('users.urls'))
 ]

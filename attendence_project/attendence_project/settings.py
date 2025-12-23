@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'attendance',
     'leaves',
     'announcements',
-    'dashboards'
+    'dashboards',
+    'corsheaders',
 
 ]
 
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'attendence_project.urls'
@@ -138,3 +141,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     )
 }
+AUTH_USER_MODEL = "users.User"
+CORS_ALLOW_ALL_ORIGINS = True
