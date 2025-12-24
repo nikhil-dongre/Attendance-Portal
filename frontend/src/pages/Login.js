@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -14,13 +16,8 @@ function Login() {
         "http://127.0.0.1:8000/api/users/login/",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
         }
       );
 
@@ -31,10 +28,20 @@ function Login() {
         return;
       }
 
+      // ✅ STORE TOKENS
       localStorage.setItem("access", data.access);
       localStorage.setItem("refresh", data.refresh);
+      localStorage.setItem("role", data.role);
 
-      alert("Login successful");
+      // ✅ ROLE-BASED REDIRECT
+      if (data.role === "ADMIN") {
+        navigate("/admin/dashboard");
+      } else if (data.role === "EMPLOYEE") {
+        navigate("/employee/dashboard");
+      } else {
+        navigate("/login");
+      }
+
     } catch (err) {
       setError("Server error. Try again.");
     }
@@ -42,7 +49,7 @@ function Login() {
 
   return (
     <div>
-      <h2>Employee Login</h2>
+      <h2>Login</h2>
 
       <form onSubmit={handleLogin}>
         <input

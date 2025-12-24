@@ -1,0 +1,112 @@
+.dashboard-container {
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #4b2fa3, #6a1b9a);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  position: relative; /* 🔑 important */
+}
+
+.navbar-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: white;
+  color: #333;
+  min-width: 180px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.menu-item {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.menu-item:hover {
+  background: #f4f6f9;
+  cursor: pointer;
+}
+
+.menu-icon {
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+}
+.navbar-left {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar button {
+  background: white;
+  color: #6a1b9a;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard-content {
+  padding: 20px 30px;
+}
+
+.dashboard-note {
+  background: #fff3cd;
+  border-left: 4px solid #ff9800;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card h4 {
+  margin-bottom: 8px;
+}
+
+.blue {
+  background: #03a9f4;
+}
+
+.pink {
+  background: #e91e63;
+}
+
+.orange {
+  background: #ff9800;
+}
+
+.green {
+  background: #4caf50;
+}

@@ -1,6 +1,5 @@
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import CustomTokenObtainSerializer
 
-from django.http import HttpResponse
-
-def home(request,):
-    
-    return HttpResponse("leaves Page")
+class LoginView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainSerializer
